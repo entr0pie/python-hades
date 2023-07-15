@@ -2,7 +2,7 @@
 
 > A Proof-Of-Concept for a colaborative Pentest framework. 
 
-Hades is an web-based application designed to centralize all information gathered during security penetration testing. It employs Nodes to represent hosts, services, and vulnerabilities, interconnected by edges. The primary objective is to create a real-time collaborative platform akin to Miro, enabling Pentesters to initiate shared sessions and seamlessly store valuable data concerning the infrastructure, network, services, and vulnerabilities.
+Hades is an web-based application designed to centralize all information gathered during security penetration testing. It employs Nodes to represent hosts, services and vulnerabilities, all interconnected by edges. The primary objective is to create a real-time collaborative platform akin to [Miro](https://miro.com/), enabling Pentesters to initiate shared sessions and seamlessly store valuable data concerning the infrastructure, network, services, and vulnerabilities.
 
 This repo contains a Proof-Of-Concept (PoC) to the backend Hades server. 
 
