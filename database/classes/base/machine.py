@@ -1,5 +1,6 @@
 #!/bin/python3
 
+from neomodel.util import Database
 from neomodel import StructuredNode
 from neomodel import StringProperty
 from neomodel import RelationshipTo
@@ -16,3 +17,36 @@ class Machine(StructuredNode):
     address = StringProperty()
     network = RelationshipTo('Machine', 'CONNECT')
     services = RelationshipTo('Service', 'HOSTS')
+
+    @staticmethod
+    def getAllRelationships():
+        edges: list = []
+        
+        database = Database()
+        result, _ = database.cypher_query("MATCH ()-[r]->() RETURN r")
+
+        for relationship in result:
+            edges.append(relationship[0])
+
+        return edges
+
+    @staticmethod
+    def getJSONRelationships():
+        rels: list = Machine.getAllRelationships()
+        json_edges: list = []
+
+        for rel in rels:
+            json_rel: dict = {}
+            json_rel['id'] = rel.id
+            json_rel['from'] = rel.nodes[0].id
+            json_rel['to'] = rel.nodes[1].id
+            json_rel['type'] = rel.type
+            json_rel['properties'] = rel._properties
+
+            json_edges.append(json_rel)
+
+        return json_edges
+
+
+        
+
