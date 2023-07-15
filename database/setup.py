@@ -5,7 +5,7 @@ from neomodel import config
 
 def setupDatabase() -> bool:
     """
-    Configure the neomodel connection though .env
+    Configure the neomodel connection though the .env file.
     """
     
     env = dotenv_values(".env")
