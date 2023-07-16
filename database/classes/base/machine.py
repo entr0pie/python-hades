@@ -48,5 +48,19 @@ class Machine(StructuredNode):
         return json_edges
 
 
-        
+class Host(Machine):
+    """
+    Special class for the Host Machine.
+    Designed with Singleton.
+    Usage: host = Host.getHost()
+    """
+
+    _instance = None
+
+    @staticmethod
+    def getInstance():
+        if Host._instance == None:
+            Host._instance = Machine.nodes.get(name='Hades')
+
+        return Host._instance
 
